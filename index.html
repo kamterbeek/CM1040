@@ -14,7 +14,11 @@
       }
     };
     const tEngine = new templateEngine("template_url");
-    constole.log(tEngine);
+    console.log(tEngine);
+    tEngine.loadTemplate()
+    .then(() => {
+    console.log("template loaded)
+     })
   </script>
 </body>
 </html>
