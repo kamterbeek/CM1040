@@ -7,6 +7,7 @@
       }
       loadTemplate();{
         return fetch(this.template_url)
+        .then(response => response.text())
       }
     };
     const tEngine = new templateEngine("template_url");
