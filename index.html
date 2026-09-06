@@ -5,6 +5,9 @@
       constructor("template_url"){
         this.template_url = template_url;
       }
+      loadTemplate();{
+        return fetch(this.template_url)
+      }
     };
     const tEngine = new templateEngine("template_url");
     constole.log(tEngine);
