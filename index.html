@@ -8,6 +8,9 @@
       loadTemplate();{
         return fetch(this.template_url)
         .then(response => response.text())
+        .then(text => {
+              this.template = text;
+        })
       }
     };
     const tEngine = new templateEngine("template_url");
