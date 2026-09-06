@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <body>
+  <div id = "content">
+    
+  </div>
   <script>
     class templateEngine{
       constructor("template_url"){
@@ -12,12 +15,18 @@
               this.template = text;
         })
       }
+    renderTemplate(tag_id, data) {
+      const tag = document.getElementById(tag_id);
+      tag.innerHTML = this.template;
+      
+    }
     };
     const tEngine = new templateEngine("template_url");
    
     tEngine.loadTemplate()
     .then(() => {
     console.log("template loaded)
+    tEngine.renderTemplate('content', {})
      })
   </script>
 </body>
