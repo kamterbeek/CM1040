@@ -27,12 +27,14 @@ const data = {
   username: "nobody",
   subcontent: "Page sub content",
   items: [
-    
+    { title: "item 1", description: "Desc 1" },
+    { title: "item 2", description: "Desc 2"}
   ]
-}
+};
 
 
 tEngine.loadTemplate().then(() => {
   console.log('Template loaded:', tEngine.template);
+  tEngine.renderTemplate("content", data);
 });
 
