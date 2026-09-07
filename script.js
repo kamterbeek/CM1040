@@ -14,6 +14,14 @@ renderTemplate(tag_id, data) {
   const tag = document.getElementById(tag_id);
   let output = this.template;
 
+  output = output.replace(/{{#each (\w)}}([\s\S]*?){{\/each}}/g, match, arrayName, templateFragment) => {
+    const listOfThings = data[arrayName];
+
+    if (!Array.isArray(listOfThings)) {
+      return '';
+    }
+  }
+
   output = output.replace(/{{\w+)}}/g, (match, datafield) => {
     return data[dataField];
   });
