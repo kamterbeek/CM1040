@@ -23,6 +23,12 @@ const data = {
   title: "Page title",
   content: "Page content",
   subtitle: "Page sub title",
+  loggedIn: true,
+  username: "nobody",
+  subcontent: "Page sub content",
+  items: [
+    
+  ]
 }
 
 
