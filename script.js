@@ -20,13 +20,21 @@ renderTemplate(tag_id, data) {
     if (!Array.isArray(listOfThings)) {
       return '';
     }
-  }
-
+    return listOfThings.map(item => this.replaceVariablesInFragment(templateFragment, item)).join('');
+    
+  });
+//variable swapping
   output = output.replace(/{{\w+)}}/g, (match, datafield) => {
     return data[dataField];
   });
+  
   tag.innerHTML = output;              
 }
+  replaceVariablesInFragment(templateFragment, data) {
+    return templateFragment.replace(/{{(\w+)}}/g, (match, dataKey) => {
+      return data[dataKey];
+    });
+  }
 }
 
 // create an instance and load the template
