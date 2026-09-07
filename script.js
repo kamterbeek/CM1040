@@ -12,7 +12,12 @@ this.template_url = template_url;
   }
 renderTemplate(tag_id, data) {
   const tag = document.getElementById(tag_id);
-  tag.innerHTML = this.template;
+  let output = this.template;
+
+  output = output.replace(/{{\w+)}}/g, (match, datafield) => {
+    return data[dataField];
+  });
+  tag.innerHTML = output;              
 }
 }
 
@@ -30,6 +35,7 @@ const data = {
     { title: "item 1", description: "Desc 1" },
     { title: "item 2", description: "Desc 2"}
   ]
+  
 };
 
 
