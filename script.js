@@ -24,6 +24,10 @@ renderTemplate(tag_id, data) {
     return listOfThings.map(item => this.replaceVariablesInFragment(templateFragment, item)).join('');
     
   });
+
+  // if-else conditions
+
+  
 //variable swapping
   output = output.replace(/{{\w+)}}/g, (match, datafield) => {
     return data[dataField];
