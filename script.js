@@ -25,8 +25,15 @@ renderTemplate(tag_id, data) {
     
   });
 
-  // if-else conditions
+// If-Else conditions
+        output = output.replace(/{{#if (\w+)}}([\s\S]*?){{else}}([\s\S]*?){{\/if}}/g, (match, condition, ifContent, elseContent) => {
+            return data[condition] ? ifContent : elseContent;
+        });
 
+        // If conditions without else
+        output = output.replace(/{{#if (\w+)}}([\s\S]*?){{\/if}}/g, (match, condition, ifContent) => {
+            return data[condition] ? ifContent : '';
+        });
   
 //variable swapping
   output = output.replace(/{{\w+)}}/g, (match, datafield) => {
