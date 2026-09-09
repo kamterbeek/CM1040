@@ -13,7 +13,8 @@ this.template_url = template_url;
 renderTemplate(tag_id, data) {
   const tag = document.getElementById(tag_id);
   let output = this.template;
-
+  
+// each loops
   output = output.replace(/{{#each (\w)}}([\s\S]*?){{\/each}}/g, match, arrayName, templateFragment) => {
     const listOfThings = data[arrayName];
 
