@@ -1,11 +1,126 @@
 {
-  "country": "The Netherlands",
-  "title": "The History of the Internet in the Netherlands",
-  "events": [
-    {
-      "year": 1990,
-      "title": "Event title",
-      "description": "Description of what happened."
-    }
-  ]
+    "country": "The Netherlands",
+    "title": "The History of the Internet in the Netherlands",
+    "description": "A timeline of important developments in Internet access, infrastructure and digital life in the Netherlands from 1990 to the present day.",
+    "events": [
+        {
+            "year": 1990,
+            "title": "SURFnet2 goes live",
+            "description": "SURF's first production network, SURFnet2, went live in 1990. It provided Internet Protocol (IP) connectivity for higher education and research institutions in the Netherlands.",
+            "category": "Academic networks",
+            "source": "SURF"
+        },
+        {
+            "year": 1992,
+            "title": "The World Wide Web reaches the Netherlands",
+            "description": "The Amsterdam Science Park became an important centre for the early Web. Nikhef launched one of the first websites in the Netherlands in 1992.",
+            "category": "World Wide Web",
+            "source": "CWI"
+        },
+        {
+            "year": 1993,
+            "title": "Internet access reaches private users",
+            "description": "After the early Internet was primarily used by universities and research organisations, private individuals in the Netherlands began gaining access to the Internet in 1993.",
+            "category": "Public Internet",
+            "source": "CWI"
+        },
+        {
+            "year": 1994,
+            "title": "AMS-IX begins",
+            "description": "The Amsterdam Internet Exchange began in 1994 as a project involving organisations including SURFnet, CWI, NIKHEF and SARA. It helped Dutch networks exchange Internet traffic more directly.",
+            "category": "Internet infrastructure",
+            "source": "AMS-IX / SURF"
+        },
+        {
+            "year": 1996,
+            "title": "SIDN is founded",
+            "description": "The Stichting Internet Domeinregistratie Nederland (SIDN) was founded in 1996 to manage the .nl country-code top-level domain.",
+            "category": "Domain names",
+            "source": "CWI / SURF"
+        },
+        {
+            "year": 1997,
+            "title": "Broadband Internet begins",
+            "description": "KPN began trials of ADSL in the Netherlands in 1997. Broadband made Internet access significantly faster than traditional dial-up connections and helped change how people used the Internet.",
+            "category": "Broadband",
+            "source": "KPN"
+        },
+        {
+            "year": 1999,
+            "title": "ADSL expands",
+            "description": "ADSL was rolled out more widely in the Netherlands around 1999 and 2000. Faster connections made it increasingly practical for households to use the Internet regularly.",
+            "category": "Broadband",
+            "source": "KPN"
+        },
+        {
+            "year": 2000,
+            "title": "The Internet becomes mainstream",
+            "description": "At the beginning of the 2000s, broadband connections and growing numbers of Internet users were transforming the Internet from a specialist technology into an everyday service.",
+            "category": "Internet adoption",
+            "source": "Historical development"
+        },
+        {
+            "year": 2004,
+            "title": "First municipal fibre network",
+            "description": "Nuenen became the first municipality in the Netherlands to be connected to a fibre-optic network, demonstrating the next stage of high-speed Internet infrastructure.",
+            "category": "Fibre broadband",
+            "source": "KPN"
+        },
+        {
+            "year": 2007,
+            "title": "Mobile Internet accelerates",
+            "description": "The late 2000s saw rapid growth in smartphones and mobile Internet. Internet access increasingly moved beyond the home computer and became available through mobile devices.",
+            "category": "Mobile Internet",
+            "source": "Historical development"
+        },
+        {
+            "year": 2010,
+            "title": "Internet access becomes nearly universal",
+            "description": "By the 2010s, Internet access had become a normal part of everyday life in the Netherlands. Broadband, smartphones and Wi-Fi supported communication, entertainment, education and work.",
+            "category": "Digital society",
+            "source": "CBS"
+        },
+        {
+            "year": 2015,
+            "title": "Mobile and online services become central to daily life",
+            "description": "Smartphones, social media, online shopping and digital government services became increasingly integrated into everyday Dutch life.",
+            "category": "Digital society",
+            "source": "Historical development"
+        },
+        {
+            "year": 2020,
+            "title": "Internet becomes essential during the COVID-19 pandemic",
+            "description": "During the COVID-19 pandemic, Internet connectivity became particularly important for remote work, online education, video communication and access to services.",
+            "category": "Digital society",
+            "source": "CBS"
+        },
+        {
+            "year": 2023,
+            "title": "35 years of Internet in the Netherlands",
+            "description": "In 2023, CWI marked 35 years since the Netherlands became the first country in Europe to connect to the public Internet in 1988. The Amsterdam Science Park remained an important part of European Internet infrastructure.",
+            "category": "Internet history",
+            "source": "CWI"
+        },
+        {
+            "year": 2024,
+            "title": "Internet access reaches almost every household",
+            "description": "CBS statistics show that Internet access was widespread in the Netherlands, with 98.5 percent of people aged 12 and over living in private households having Internet access in 2024.",
+            "category": "Internet access",
+            "source": "CBS"
+        },
+        {
+            "year": 2025,
+            "title": "Internet access remains almost universal",
+            "description": "CBS reported that 98.3 percent of people aged 12 and over in private households had Internet access in 2025, showing how deeply Internet connectivity has become embedded in Dutch society.",
+            "category": "Internet access",
+            "source": "CBS"
+        },
+        {
+            "year": 2026,
+            "title": "The connected Netherlands",
+            "description": "Today, the Internet is an essential part of life in the Netherlands. High-speed broadband, fibre networks, mobile connectivity and large Internet exchanges support communication, business, education, entertainment and public services.",
+            "category": "Present day",
+            "source": "Current development"
+        }
+    ]
 }
