@@ -1,10 +1,47 @@
-{{#if loggedIn}}
 
-<h1>{{title}}</h1>
+<section class="timeline">
 
-<ol>
-  {{#each item}}
-  <li>
-    {{title}} - {{description}}
-  </li>
-</ol>
+    <div class="timeline-intro">
+        <p class="eyebrow">1990–Present</p>
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+    </div>
+
+
+    <div class="timeline-events">
+
+        {{#each events}}
+
+        <article class="timeline-event">
+
+            <div class="timeline-year">
+                <span>{{year}}</span>
+            </div>
+
+            <div class="timeline-marker"></div>
+
+            <div class="timeline-content">
+
+                <p class="timeline-category">
+                    {{category}}
+                </p>
+
+                <h2>{{title}}</h2>
+
+                <p class="timeline-description">
+                    {{description}}
+                </p>
+
+                <p class="timeline-source">
+                    Source: {{source}}
+                </p>
+
+            </div>
+
+        </article>
+
+        {{/each}}
+
+    </div>
+
+</section>
