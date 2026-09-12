@@ -1,1 +1,11 @@
-
+{
+  "country": "The Netherlands",
+  "title": "The History of the Internet in the Netherlands",
+  "events": [
+    {
+      "year": 1990,
+      "title": "Event title",
+      "description": "Description of what happened."
+    }
+  ]
+}
