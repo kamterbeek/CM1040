@@ -16,63 +16,105 @@ class SimpleTemplateEngine {
         let output = this.template;
 
         // Each loops
-        output = output.replace(/{{#each (\w+)}}([\s\S]*?){{\/each}}/g, (match, arrayName, templateFragment) => {
-            const listOfThings = data[arrayName];
+        output = output.replace(
+            /{{#each (\w+)}}([\s\S]*?){{\/each}}/g,
+            (match, arrayName, templateFragment) => {
 
-            if (!Array.isArray(listOfThings)) {
-                return '';
+                const listOfThings = data[arrayName];
+
+                if (!Array.isArray(listOfThings)) {
+                    return '';
+                }
+
+                return listOfThings
+                    .map(item =>
+                        this.replaceVariablesInFragment(templateFragment, item)
+                    )
+                    .join('');
             }
-            return listOfThings.map(item => this.replaceVariablesInFragment(templateFragment, item)).join('');
-        });
+        );
 
         // If-Else conditions
-        output = output.replace(/{{#if (\w+)}}([\s\S]*?){{else}}([\s\S]*?){{\/if}}/g, (match, condition, ifContent, elseContent) => {
-            return data[condition] ? ifContent : elseContent;
-        });
+        output = output.replace(
+            /{{#if (\w+)}}([\s\S]*?){{else}}([\s\S]*?){{\/if}}/g,
+            (match, condition, ifContent, elseContent) => {
+                return data[condition] ? ifContent : elseContent;
+            }
+        );
 
         // If conditions without else
-        output = output.replace(/{{#if (\w+)}}([\s\S]*?){{\/if}}/g, (match, condition, ifContent) => {
-            return data[condition] ? ifContent : '';
-        });
+        output = output.replace(
+            /{{#if (\w+)}}([\s\S]*?){{\/if}}/g,
+            (match, condition, ifContent) => {
+                return data[condition] ? ifContent : '';
+            }
+        );
 
         // Variable swapping
-        output = output.replace(/{{(\w+)}}/g, (match, dataField) => {
-            return data[dataField];
-        });
+        output = output.replace(
+            /{{(\w+)}}/g,
+            (match, dataField) => {
+                return data[dataField] ?? '';
+            }
+        );
 
         tag.innerHTML = output;
     }
 
     replaceVariablesInFragment(templateFragment, data) {
-        return templateFragment.replace(/{{(\w+)}}/g, (match, dataKey) => {
-            return data[dataKey];
-        });
+        return templateFragment.replace(
+            /{{(\w+)}}/g,
+            (match, dataKey) => {
+                return data[dataKey] ?? '';
+            }
+        );
     }
 }
 
-// Create an instance and load the template
+
+// Create an instance of the template engine
 const tEngine = new SimpleTemplateEngine('template.html');
 
-let data = {
-    loaded: false
-};
 
-tEngine.loadTemplate().then(() => {
-    console.log('Template loaded:', tEngine.template);
+// Load the template first
+tEngine.loadTemplate()
+    .then(() => {
 
-    // Fetch data from the REST API at intervals
-    setInterval(() => {
-        console.log("Reloading data");
-        fetch("http://localhost:3000/books")
-            .then(response => response.json())
-            .then(jsonData => {
-                console.log(jsonData);
-                data = {
-                    title: "Book list",
-                    loaded: true,
-                    books: jsonData
-                };
-                tEngine.renderTemplate('content', data);
-            });
-    }, 4000);
-});
+        console.log('Template loaded successfully.');
+
+        // Load the Netherlands Internet history data
+        return fetch('data.json');
+    })
+    .then(response => {
+
+        if (!response.ok) {
+            throw new Error('Could not load data.json');
+        }
+
+        return response.json();
+    })
+    .then(jsonData => {
+
+        console.log('JSON data loaded:', jsonData);
+
+        // Basic JSON validation
+        if (!jsonData.events || !Array.isArray(jsonData.events)) {
+            throw new Error(
+                'Invalid JSON data: events must be an array.'
+            );
+        }
+
+        // Render the data into the page
+        tEngine.renderTemplate('content', jsonData);
+
+    })
+    .catch(error => {
+        console.error('Error loading website data:', error);
+
+        const content = document.getElementById('content');
+
+        if (content) {
+            content.innerHTML =
+                '<p>Sorry, there was a problem loading the website data.</p>';
+        }
+    });
